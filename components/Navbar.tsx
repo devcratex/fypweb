@@ -6,7 +6,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
-
+import { useRouter } from "next/navigation";
 const navItems = [
   { label: "Home", to: "/" },
   { label: "Projects", to: "/projects" },
@@ -15,20 +15,23 @@ const navItems = [
   { label: "Contact", to: "/contact" },
 ];
 
-const mobilenumber = "+923126025681 "; // Change to your number
+const mobilenumber = "+923126025681 ";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-
-  const openWhatsApp = () => {
+  const router = useRouter();
+  const openProjects = () => {
+    router.push("/projects");
+  };
+const openWhatsApp = () => {
     window.open(`https://wa.me/${mobilenumber}`, "_blank");
   };
-
   return (
     <>
       {/* Top Contact Bar */}
       <div className="bg-black text-white py-2 text-center text-sm">
-        <p>✆ Call/WhatsApp: +92 312 6025681 | ✉ fyphubinovative@gmail.com</p>
+        <p>✆ Call/WhatsApp: +92 312 6025681</p>
+        ✉ fyphubinovative@gmail.com
       </div>
 
       <nav className="bg-white text-black px-4 sm:px-8 py-4 sticky top-0 z-50  font-sans">
@@ -70,10 +73,10 @@ export default function Navbar() {
           {/* Mobile Menu */}
           <div className="lg:hidden flex items-center gap-3">
             <button
-              onClick={openWhatsApp}
+              onClick={openProjects}
               className="bg-purple-600 px-4 py-2 rounded-lg text-sm font-bold text-white"
             >
-             Let's Talk 💬
+             Projects List💬
             </button>
             <button onClick={() => setIsOpen(!isOpen)} className="text-black">
               {isOpen ? <X size={28} /> : <Menu size={28} />}

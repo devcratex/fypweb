@@ -18,7 +18,7 @@ export default function Contact() {
   return (
     <>
       {/* Hero Section - Strong WhatsApp CTA */}
-      <section className="relative bg-white text-black py-32 overflow-hidden">
+      <section className="relative bg-white text-black py-4 overflow-hidden">
         <div className="absolute inset-0  opacity-50"></div>
         <div className="relative max-w-7xl mx-auto px-6 text-center">
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight">

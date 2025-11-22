@@ -65,33 +65,33 @@ export default function ProjectsClient({ initialProjects }: { initialProjects: a
           </div>
 
           {/* Category Pills */}
-          <div className="flex flex-wrap gap-3 justify-center">
-            <button
-              onClick={() => setSelectedCategory("all")}
-              className={`px-6 py-3 rounded-full font-bold transition ${
-                selectedCategory === "all"
-                  ? "bg-purple-600 text-white shadow-lg"
-                  : "bg-gray-200 text-gray-700 hover:bg-gray-300"
-              }`}
-            >
-              All ({projects.length})
-            </button>
-            {allCategories.map((cat) => {
-              const count = projects.filter((p) => p.category === cat).length;
-              return (
-                <button
-                  key={cat}
-                  onClick={() => setSelectedCategory(cat)}
-                  className={`px-6 py-3 rounded-full font-bold transition ${
-                    selectedCategory === cat
-                      ? "bg-purple-600 text-white shadow-lg"
-                      : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+          <div className="overflow-x-auto hide-scrollbar pb-4">
+            <div className="flex gap-3 justify-start min-w-max px-4"> {/* px-4 for mobile padding */}
+              <button
+                onClick={() => setSelectedCategory("all")}
+                className={`px-6 py-3 rounded-full font-bold transition whitespace-nowrap ${selectedCategory === "all"
+                    ? "bg-purple-600 text-white shadow-lg"
+                    : "bg-gray-200 text-gray-700 hover:bg-gray-300"
                   }`}
-                >
-                  {cat} ({count})
-                </button>
-              );
-            })}
+              >
+                All ({projects.length})
+              </button>
+              {allCategories.map((cat) => {
+                const count = projects.filter((p) => p.category === cat).length;
+                return (
+                  <button
+                    key={cat}
+                    onClick={() => setSelectedCategory(cat)}
+                    className={`px-6 py-3 rounded-full font-bold transition whitespace-nowrap ${selectedCategory === cat
+                        ? "bg-purple-600 text-white shadow-lg"
+                        : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+                      }`}
+                  >
+                    {cat} ({count})
+                  </button>
+                );
+              })}
+            </div>
           </div>
         </div>
 
@@ -124,18 +124,35 @@ export default function ProjectsClient({ initialProjects }: { initialProjects: a
                   </div>
 
                   <div className="p-6 md:p-7">
-                    <span className="text-xs font-bold text-purple-600 uppercase tracking-wider">
-                      {project.category}
-                    </span>
-                    <h3 className="font-bold text-xl md:text-2xl text-gray-900 mt-3 group-hover:text-purple-600 transition line-clamp-2">
+                    {/* Category */}
+                    <div className="flex justify-between items-center">
+                      <span className="text-xs font-bold text-purple-600 uppercase tracking-wider">
+                        {project.category}
+                      </span>
+                      <span className="text-xs font-bold text-green-600 uppercase tracking-wider">
+                        Price:{project.price}
+                      </span>
+                    </div>
+                    {/* Title */}
+                    <h3 className="font-bold text-xl md:text-2xl text-gray-900 mt-3 group-hover:text-purple-600 transition-colors line-clamp-2">
                       {project.name}
                     </h3>
-                    <div className="flex justify-between items-center mt-5">
-                      <span className="text-2xl md:text-3xl font-bold text-green-600">
-                        {project.price}/-Rs
-                      </span>
+                    {project.categoriesList && project.categoriesList.length > 0 && (
+                      <div className="flex flex-wrap gap-2 mt-3">
+                        {project.categoriesList.map((tech: string, index: number) => (
+                          <span
+                            key={index}
+                            className="px-3 py-1 bg-gradient-to-r from-purple-500 to-pink-500 text-white text-xs font-semibold rounded-full shadow-md"
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                    )}
+                    {/* Price + CTA */}
+                    <div className="flex justify-center items-center mt-6">
                       <span className="text-sm font-medium text-gray-500 group-hover:text-purple-600 transition">
-                        View Details →
+                        View Details
                       </span>
                     </div>
                   </div>

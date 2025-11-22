@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { getProjects, getProjectBySlug } from "@/lib/api";
+import PopularProjectsCarousel from "@/components/PopularProjectsCarousel";
 
 // Strip HTML safely
 const stripHtml = (html: string): string => html.replace(/<[^>]*>/g, "").trim();
@@ -59,7 +60,7 @@ export default async function ProjectDetail({ params }: { params: Promise<{ slug
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100 font-sans">
-      <div className="max-w-7xl mx-auto px-6 py-12 lg:py-16">
+      <div className="max-w-7xl mx-auto px-6 py-1 lg:py-16">
 
         {/* Hero Image / Gallery */}
         <div className="mb-12">
@@ -97,11 +98,25 @@ export default async function ProjectDetail({ params }: { params: Promise<{ slug
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
               {project.name}
             </h1>
+              {techList.length > 0 && (
+          <section>
+            <div className="flex flex-wrap gap-2 mt-2">
+              {techList.map((tech: string) => (
+                <span
+                  key={tech}
+                  className="px-2 py-1 bg-gray-500 text-white text-sm rounded-full shadow-md"
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
+          </section>
+        )}
           </div>
 
-          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
-            <span className="text-3xl font-bold text-green-600">
-              {project.price}/-Rs
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3">
+            <span className="text-2xl font-bold text-green-600">
+              Price: {project.price}
             </span>
             <Link
               href={`https://wa.me/+923126025681?text=Hi! I want to buy: *${encodeURIComponent(project.name)}* - pkr${project.price}`}
@@ -123,15 +138,7 @@ export default async function ProjectDetail({ params }: { params: Promise<{ slug
   </h2>
 
   <article 
-    className="prose prose-lg max-w-none 
-               text-gray-700 leading-relaxed
-               prose-headings:font-bold prose-headings:text-gray-900 
-               prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-6 prose-h2:border-l-4 prose-h2:border-purple-600 prose-h2:pl-4
-               prose-h3:text-2xl prose-h3:mt-10 prose-h3:mb-5 prose-h3:text-purple-800
-               prose-h4:text-xl prose-h4:mt-8 prose-h4:mb-4 prose-h4:text-purple-700
-               prose-ul:my-6 prose-li:my-2 prose-li:marker:text-purple-600
-               prose-strong:text-gray-900 prose-strong:font-semibold
-               prose-p:my-4"
+className="blog-content prose prose-lg max-w-none text-gray-700 leading-relaxed"
     dangerouslySetInnerHTML={{ __html: project.description || "No description available." }}
   />
 </section>
@@ -152,62 +159,10 @@ export default async function ProjectDetail({ params }: { params: Promise<{ slug
           </section>
         )}
 
-        {/* Technologies */}
-        {techList.length > 0 && (
-          <section className="mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">Technologies Used</h2>
-            <div className="flex flex-wrap gap-4">
-              {techList.map((tech: string) => (
-                <span
-                  key={tech}
-                  className="px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-medium rounded-full shadow-md"
-                >
-                  {tech}
-                </span>
-              ))}
-            </div>
-          </section>
-        )}
 
-        {/* Similar Projects */}
-        {similarProjects.length > 0 && (
-          <section>
-            <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
-              More Projects You May Like
-            </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-              {similarProjects.map((p: any) => {
-                const simImg = p.images?.[0] || "/fallback-project.jpg";
-                return (
-                  <Link
-                    key={p.id}
-                    href={`/projects/${p.slug}`}
-                    className="group block bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 border"
-                  >
-                    <div className="h-56 overflow-hidden bg-gray-100">
-                      <Image
-                        src={simImg}
-                        alt={p.name}
-                        fill
-                        className="object-cover group-hover:scale-110 transition-transform duration-500"
-                      />
-                    </div>
-                    <div className="p-6">
-                      <h3 className="font-bold text-xl text-gray-900 group-hover:text-purple-600 line-clamp-2">
-                        {p.name}
-                      </h3>
-                      <div className="flex justify-between items-center mt-4">
-                        <span className="text-2xl font-bold text-green-600">{p.price}/-Rs</span>
-                        <span className="text-sm text-gray-500">{p.category}</span>
-                      </div>
-                    </div>
-                  </Link>
-                );
-              })}
-            </div>
-          </section>
-        )}
       </div>
+            <PopularProjectsCarousel projects={similarProjects && similarProjects.length > 0 ? similarProjects : allProjects}/>
+
     </div>
   );
 }

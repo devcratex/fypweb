@@ -7,6 +7,7 @@ import TestimonialList from "@/components/TestimonialList";
 import CourseCard from "@/components/CourseCard";
 import Link from "next/link";
 import { getProjects } from "@/lib/api";
+import PopularProjectsCarousel from "@/components/PopularProjectsCarousel";
 
 export const metadata = {
   title: "FYP Hub - Buy Premium Final Year Projects with Full Source Code",
@@ -53,24 +54,7 @@ export default async function HomePage() {
       <CountCardsContainer />
 
       {/* Popular Projects */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-5xl font-bold text-center mb-16 text-black">Popular Projects</h2>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
-            {projects.slice(0, 6).map((project: any) => (
-              <ProjectCard key={project.id} project={project} />
-            ))}
-          </div>
-          <div className="text-center mt-12">
-            <Link
-              href="/projects"
-              className="inline-block bg-gradient-to-r from-purple-600 to-pink-600 text-white px-12 py-5 rounded-full text-xl font-bold hover:shadow-2xl transform hover:scale-105 transition"
-            >
-              View All {projects.length}+ Projects →
-            </Link>
-          </div>
-        </div>
-      </section>
+      <PopularProjectsCarousel projects={projects}/>
 
       {/* Course Card */}
       <section className="py-20 bg-gradient-to-br from-purple-50 to-pink-50">

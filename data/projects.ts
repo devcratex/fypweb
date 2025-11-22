@@ -5,7 +5,7 @@ export const projects = [
     slug: "e-commerce-website-with-ai-recommendation",
     name: "E-Commerce Website with AI Recommendation",
     category: "Web Development",
-    price: "pkr2499",
+    price: "2499",
     images: ["/images/testimage1.png"],
     description: `
       <p><strong>Complete Full-Stack MERN E-Commerce Webssite</strong> with AI-powered product recommendations.</p>
@@ -28,7 +28,7 @@ export const projects = [
     slug: "hospital-management-system",
     name: "Hospital Management System",
     category: "Desktop Application",
-    price: "pkr2999",
+    price: "2999",
     images: ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-8ohAFzUol7ctQ8K-5WGd2lvdcJ7NbBJsWUR2ac_7NqNo8NufwXXoiulIfqxlICZDNynH5baiPDsfM7QnY1l_tNHZgohrKig35pTQUp0&s=10"],
     description: `
       <p><strong>Complete Hospital Management Desktop Application</strong> built with Java.</p>
@@ -51,7 +51,7 @@ export const projects = [
     slug: "face-recognition-attendance-system",
     name: "Face Recognition Attendance System",
     category: "Machine Learning",
-    price: "pkr3499",
+    price: "3499",
     images: ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-8ohAFzUol7ctQ8K-5WGd2lvdcJ7NbBJsWUR2ac_7NqNo8NufwXXoiulIfqxlICZDNynH5baiPDsfM7QnY1l_tNHZgohrKig35pTQUp0&s=10"],
     description: `
       <p><strong>Real-Time Face Recognition Attendance System</strong> using Deep Learning.</p>
@@ -74,7 +74,7 @@ export const projects = [
     slug: "food-delivery-app-like-swiggy",
     name: "Food Delivery App (Like Swiggy/Zomato)",
     category: "Mobile App",
-    price: "pkr4499",
+    price: "4499",
     images: ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-8ohAFzUol7ctQ8K-5WGd2lvdcJ7NbBJsWUR2ac_7NqNo8NufwXXoiulIfqxlICZDNynH5baiPDsfM7QnY1l_tNHZgohrKig35pTQUp0&s=10"],
     description: `
       <p><strong>Complete Multi-Vendor Food Delivery App</strong> like Swiggy/Zomato.</p>
@@ -97,7 +97,7 @@ export const projects = [
     slug: "online-examination-system-with-anti-cheating",
     name: "Online Examination System with Anti-Cheating",
     category: "Web Development",
-    price: "pkr1999",
+    price: "1999",
     images: ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-8ohAFzUol7ctQ8K-5WGd2lvdcJ7NbBJsWUR2ac_7NqNo8NufwXXoiulIfqxlICZDNynH5baiPDsfM7QnY1l_tNHZgohrKig35pTQUp0&s=10"],
     description: `
       <p><strong>Secure Online Exam Portal</strong> with advanced anti-cheating features.</p>
@@ -120,7 +120,7 @@ export const projects = [
     slug: "smart-parking-system-iot",
     name: "Smart Parking System using IoT",
     category: "IoT & Embedded",
-    price: "pkr3999",
+    price: "3999",
     images: ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-8ohAFzUol7ctQ8K-5WGd2lvdcJ7NbBJsWUR2ac_7NqNo8NufwXXoiulIfqxlICZDNynH5baiPDsfM7QnY1l_tNHZgohrKig35pTQUp0&s=10"],
     description: "<p>Real-time parking slot detection using ultrasonic sensors and mobile app booking.</p><ul><li>Arduino + ESP32</li><li>Mobile App (Android)</li><li>Slot Booking & Payment</li><li>Live Availability</li></ul>",
     categoriesList: ["Arduino", "ESP32", "Android", "Firebase"],
@@ -131,7 +131,7 @@ export const projects = [
     slug: "blockchain-based-voting-system",
     name: "Blockchain Based E-Voting System",
     category: "Blockchain",
-    price: "pkr4999",
+    price: "4999",
     images: ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-8ohAFzUol7ctQ8K-5WGd2lvdcJ7NbBJsWUR2ac_7NqNo8NufwXXoiulIfqxlICZDNynH5baiPDsfM7QnY1l_tNHZgohrKig35pTQUp0&s=10"],
     description: "<p>Secure, transparent online voting using Ethereum smart contracts.</p><ul><li>Smart Contracts</li><li>MetaMask Login</li><li>Vote Once Only</li><li>Real-time Results</li></ul>",
     categoriesList: ["Solidity", "React", "Web3.js", "Ethereum"],
@@ -142,7 +142,7 @@ export const projects = [
     slug: "chat-application-with-encryption",
     name: "Secure Chat App with End-to-End Encryption",
     category: "Mobile App",
-    price: "pkr2799",
+    price: "2799",
     images: ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-8ohAFzUol7ctQ8K-5WGd2lvdcJ7NbBJsWUR2ac_7NqNo8NufwXXoiulIfqxlICZDNynH5baiPDsfM7QnY1l_tNHZgohrKig35pTQUp0&s=10"],
     description: "<p>WhatsApp-like chat app with AES encryption and Firebase backend.</p>",
     categoriesList: ["Flutter", "Firebase", "AES Encryption"],

@@ -24,3 +24,47 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+/* Only inside blog-content */
+.blog-content h1 {
+  @apply text-2xl font-extrabold text-gray-900  text-center;
+}
+
+.blog-content h2 {
+  @apply text-2xl font-bold text-purple-800  border-l-4 border-purple-600 pl-4;
+}
+
+.blog-content h3 {
+  @apply text-3xl font-semibold text-purple-700 ;
+}
+
+.blog-content h4 {
+  @apply text-2xl font-semibold text-purple-600 ;
+}
+
+.blog-content p {
+  @apply my-1 leading-relaxed text-gray-700;
+}
+
+.blog-content ul {
+  @apply list-disc list-inside my-2;
+}
+
+.blog-content li {
+  @apply my-2;
+}
+
+
+.blog-content th {
+  @apply border border-gray-300 bg-purple-100  text-gray-900 text-sm;
+}
+.blog-content td {
+  @apply border border-gray-300  text-gray-700 text-sm;
+}
+

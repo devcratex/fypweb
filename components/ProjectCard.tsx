@@ -19,7 +19,7 @@ export default function ProjectCard({ project }: { project: Project }) {
   const mainImage = project.images && project.images.length > 0 
     ? project.images[0] 
     : "/fallback-project.jpg"; // ← Add a placeholder in public/
-
+const techList = project.categoriesList || [];
   return (
     <Link
       href={`/projects/${project.slug}`}
@@ -45,22 +45,36 @@ export default function ProjectCard({ project }: { project: Project }) {
       {/* Content */}
       <div className="p-6 md:p-7">
         {/* Category */}
+        <div className="flex justify-between items-center">
         <span className="text-xs font-bold text-purple-600 uppercase tracking-wider">
           {project.category}
         </span>
-
+        <span className="text-xs font-bold text-green-600 uppercase tracking-wider">
+          Price:{project.price}
+        </span>
+         </div>
         {/* Title */}
         <h3 className="font-bold text-xl md:text-2xl text-gray-900 mt-3 group-hover:text-purple-600 transition-colors line-clamp-2">
           {project.name}
         </h3>
-
+        {techList.length > 0 && (
+          <section>
+            <div className="flex flex-wrap gap-2 mt-2">
+              {techList.map((tech: string) => (
+                <span
+                  key={tech}
+                  className="px-2 py-1 bg-gray-500 text-white text-xs rounded-full shadow-md"
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
+          </section>
+        )}
         {/* Price + CTA */}
-        <div className="flex justify-between items-center mt-6">
-          <span className="text-2xl md:text-3xl font-bold text-green-600">
-            {project.price}/-Rs
-          </span>
+        <div className="flex justify-center items-center mt-6">
           <span className="text-sm font-medium text-gray-500 group-hover:text-purple-600 transition">
-            View Details →
+            View Details
           </span>
         </div>
       </div>
