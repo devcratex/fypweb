@@ -60,7 +60,7 @@ export default function ProjectsClient({ initialProjects }: { initialProjects: a
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Search projects... (e.g. e-commerce, AI, hospital)"
-              className="w-full pl-14 pr-6 py-4 text-lg border-2 border-gray-200 rounded-2xl focus:border-purple-600 focus:outline-none transition"
+              className="w-full pl-14 pr-6 py-4 text-lg text-black border-2 border-gray-200 rounded-2xl focus:border-purple-600 focus:outline-none transition"
             />
           </div>
 

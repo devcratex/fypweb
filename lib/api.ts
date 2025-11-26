@@ -9,30 +9,29 @@ const FALLBACK_PROJECTS = projects
 export async function getProjects() {
   try {
     const res = await fetch(`${API_BASE}/projects`, {
-      next: { revalidate: 60 }, // Revalidate every 60 seconds
-      cache: "force-cache", // Optional: cache results
+      next: { revalidate: 60 },
+      cache: "force-cache",
     });
 
-    // If API is down or returns error
     if (!res.ok) {
       console.warn("API failed, using fallback data:", res.status);
-      return FALLBACK_PROJECTS;
+      return FALLBACK_PROJECTS.slice().reverse(); // also reverse fallback
     }
 
     const data = await res.json();
 
-    // If data is empty or not array
     if (!data || !Array.isArray(data) || data.length === 0) {
       console.warn("API returned empty/no data, using fallback");
-      return FALLBACK_PROJECTS;
+      return FALLBACK_PROJECTS.slice().reverse();
     }
 
-    return data;
+    return data.slice().reverse(); // ← last item becomes first
   } catch (error) {
     console.error("Fetch error:", error);
-    return FALLBACK_PROJECTS; // Always return something!
+    return FALLBACK_PROJECTS.slice().reverse();
   }
 }
+
 
 // Same for blogs
 export async function getBlogs() {

@@ -1,6 +1,6 @@
 // src/components/Footer.tsx
 import Link from "next/link";
-import { Facebook, Linkedin, Github } from "lucide-react";
+import { Facebook } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -59,10 +59,10 @@ export default function Footer() {
                 <Facebook size={24} />
               </a>
               <a href="https://www.facebook.com/profile.php?id=61551889625005" className="bg-white/10 p-3 rounded-full hover:bg-white/20 transition">
-                <Linkedin size={24} />
+                <Facebook size={24} />
               </a>
-              <a href="https://github.com/devcratex/" className="bg-white/10 p-3 rounded-full hover:bg-white/20 transition">
-                <Github size={24} />
+              <a href="https://www.facebook.com/profile.php?id=61551889625005" className="bg-white/10 p-3 rounded-full hover:bg-white/20 transition">
+                <Facebook size={24} />
               </a>
             </div>
           </div>
